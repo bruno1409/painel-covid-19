@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f3f3;
+}
+
+h1 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card-body {
+    box-shadow: 3px 3px 10px #0000004d;
+}
+
+.card-body > p {
+    font-size: 1.8em;
+}
+
+.texto > h1 {
+    font-size: 1.5em;
+    line-height: 50px;
+}
+
+.texto > p {
+    font-size: 1.2em;
+}
+
+.navbar-light {
+    background-color: rgb(202, 222, 233)!important;
+}
+
+.mortes {
+    color: #c41313;
+}
+
+abbr {
+    text-decoration: none!important;
+    cursor: default!important;
+}
