@@ -82,14 +82,14 @@ export default function Home() {
             <div className="card">
                 <div className="card-body texto">
                     <h1>Sobre o painel</h1>
-                    <p>Este painel tem como finalidade mostrar dados sobre a COVID-19 em abrangência Nacional e também divididos por Estados.</p>
+                    <p>Este painel tem como finalidade mostrar dados sobre a COVID-19 no Brasil e nos Estados.</p>
                     <p>Os dados de população estimada são obtidos através do IBGE (Instituto Brasileiro de Geografia e Estatística), disponível <a href="https://servicodados.ibge.gov.br/api/docs/projecoes" target="_blank">aqui</a>.</p>
                     <p>Os dados de casos confirmados e mortes são obtidos através de uma fonte pública de dados, disponível <a href="https://covid19-brazil-api-docs.vercel.app/" target="_blank">aqui</a>.</p>
                     <p>Desenvolvido por <a href="https://github.com/bruno1409" target="_blank">Bruno Martins</a> com Next.js e hospedado gratuitamente na Vercel.</p>
-                    <p><a href="https://github.com/bruno1409/painel-covid-19" target="_blank">Sugira novidades ou informe problemas</a></p>
+                    <p><a href="https://github.com/bruno1409/painel-covid-19" target="_blank">Código-fonte do painel</a></p>
                 </div>
             </div>
-            <code><p className="text-center mt-3"><i className="fas fa-code fa-fw"></i> Versão 1.1 | <i className="fas fa-calendar fa-fw"></i> 05 de junho de 2021</p></code>
+            <code><p className="text-center mt-3"><i className="fas fa-code fa-fw"></i> Versão 1.2 | <i className="fas fa-calendar fa-fw"></i> 05 de junho de 2021</p></code>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     </>)

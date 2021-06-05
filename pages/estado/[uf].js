@@ -143,7 +143,7 @@ export default function Home({populacao, uf, estado, confirmados, mortes, data, 
             </nav>
         </header>
         <main className="container my-3">
-            <div className="alert alert-secondary mb-4"><i className="fas fa-info-circle fa-fw"></i> Este painel apresenta uma visão resumida e simplificada contendo apenas o número de casos confirmados e de morte por abrangência, sendo Nacional ou Estadual.</div>
+            <div className="alert alert-secondary mb-4"><i className="fas fa-info-circle fa-fw"></i> Este painel apresenta uma visão resumida e simplificada contendo apenas o número de casos confirmados e de mortes por abrangência, sendo Nacional ou Estadual.</div>
             <div className="row text-center">
                 <div className="col-sm-12 col-md-6">
                     <Image src={`/${uf.toLowerCase()}.png`} height="500" width="496"/>
