@@ -3,6 +3,8 @@
 ## Sobre
 Painel com dados sobre a COVID-19 no Brasil e nos Estados
 
+[Acessar painel](https://painel-covid-19.vercel.app/)
+
 ## Funcionalidades
 O painel permite visualizar dados como população estimada, casos confirmados e mortes de COVID-19 em abrangência Nacional ou Estadual.
 
