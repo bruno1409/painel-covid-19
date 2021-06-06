@@ -15,6 +15,9 @@ O painel permite visualizar dados como população estimada, casos confirmados e
 
 ## Changelog
 
+Versão 1.3
+* Correção no fuso horário das atualizações dos dados
+
 Versão 1.2
 * Correção no texto
 
