@@ -1,13 +1,13 @@
 {
   "name": "painel-covid-19",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "Painel com dados sobre a COVID-19 no Brasil e nos Estados",
   "main": "index.js",
   "scripts": {
     "dev": "next dev"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bruno Martins",
   "license": "ISC",
   "dependencies": {
     "next": "^10.2.3",
