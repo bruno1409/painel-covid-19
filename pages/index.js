@@ -16,7 +16,7 @@ export async function getStaticProps() {
     const mortes = json_covid.data.deaths;
     const atualizacao = json_covid.data.updated_at;
     const data = new Date(atualizacao).toLocaleDateString("pt-BR", { dateStyle: 'short' });
-    const hora = new Date(atualizacao).toLocaleDateString("pt-BR", { timeStyle: 'short' });
+    const hora = new Date(atualizacao).toLocaleTimeString("pt-BR", { timeStyle: 'short' });
 
     return {
         props: {
