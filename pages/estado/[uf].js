@@ -57,15 +57,17 @@ export async function getStaticProps(context) {
     const json_ibge = await api_ibge.json();
     const populacao = json_ibge.projecao.populacao;
 
+    const porcentagem = ((confirmados / populacao) * 100).toFixed(2);
+
     return {
         props: {
-            populacao, uf, estado, confirmados, mortes, data, hora
+            populacao, uf, estado, confirmados, mortes, data, hora, porcentagem
         },
         revalidate: 120,
     }
 }
 
-export default function Home({populacao, uf, estado, confirmados, mortes, data, hora}) {
+export default function Home({populacao, uf, estado, confirmados, mortes, data, hora, porcentagem}) {
     return (<>
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -174,7 +176,8 @@ export default function Home({populacao, uf, estado, confirmados, mortes, data, 
                             <div className="card">
                                 <div className="card-body">
                                     <h1><i className="fas fa-virus fa-fw"></i> Casos Confirmados</h1>
-                                    <p>{confirmados.toLocaleString('pt-BR')}</p>
+                                    <p className="m-0">{confirmados.toLocaleString('pt-BR')}</p>
+                                    <small>{porcentagem.replace('.', ',')}% da População Estimada</small>
                                 </div>
                             </div>
                         </div>
