@@ -17,16 +17,17 @@ export async function getStaticProps() {
     const atualizacao = json_covid.data.updated_at;
     const data = new Date(atualizacao).toLocaleDateString("pt-BR", { dateStyle: 'short' });
     const hora = new Date(atualizacao).toLocaleTimeString("pt-BR", { timeStyle: 'short' });
+    const porcentagem = ((confirmados / populacao) * 100).toFixed(2);
 
     return {
         props: {
-            populacao, confirmados, mortes, data, hora
+            populacao, confirmados, mortes, data, hora, porcentagem
         },
         revalidate: 300,
     }
 }
 
-export default function Home({populacao, confirmados, mortes, data, hora}) {
+export default function Home({populacao, confirmados, mortes, data, hora, porcentagem}) {
     return (<>
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -134,7 +135,8 @@ export default function Home({populacao, confirmados, mortes, data, hora}) {
                             <div className="card">
                                 <div className="card-body">
                                     <h1><i className="fas fa-virus fa-fw"></i> Casos Confirmados</h1>
-                                    <p>{confirmados.toLocaleString('pt-BR')}</p>
+                                    <p className="m-0">{confirmados.toLocaleString('pt-BR')}</p>
+                                    <small>{porcentagem.replace('.', ',')}% da População Estimada</small>
                                 </div>
                             </div>
                         </div>
