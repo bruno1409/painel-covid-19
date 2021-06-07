@@ -15,6 +15,10 @@ O painel permite visualizar dados como população estimada, casos confirmados e
 
 ## Changelog
 
+Versão 1.4
+* Adicionado o percentual de casos ativos relativos à população estimada
+* Adicionado um favicon customizado
+
 Versão 1.3
 * Correção no fuso horário das atualizações dos dados
 
