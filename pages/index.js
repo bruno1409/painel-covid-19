@@ -32,6 +32,7 @@ export default function Home({populacao, confirmados, mortes, data, hora, porcen
         <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <title>Painel COVID-19 - Brasil</title>
+            <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
         </Head>
