@@ -63,7 +63,7 @@ export async function getStaticProps(context) {
         props: {
             populacao, uf, estado, confirmados, mortes, data, hora, porcentagem
         },
-        revalidate: 120,
+        revalidate: 60,
     }
 }
 
@@ -190,12 +190,12 @@ export default function Home({populacao, uf, estado, confirmados, mortes, data, 
                             </div>
                         </div>
                     </div>
+                    <p className="mt-3"><i className="fas fa-clock fa-fw"></i> Atualizado em {data} às {hora}</p>
+                    <Link href=""><a className="btn btn-primary"><i className="fas fa-sync fa-fw"></i> Atualizar</a></Link>
                 </div>
             </div>
         </main>
         <footer className="container mt-4">
-            <p><i className="fas fa-clock fa-fw"></i> Última atualização dos dados: {data} às {hora}</p>
-            <p><i className="fas fa-laptop-medical fa-fw"></i> Dados do Ministério da Saúde e Secretarias Estaduais de Saúde</p>
             <hr/>
             <p><Link href="/sobre"><a>Sobre o painel</a></Link></p>
         </footer>

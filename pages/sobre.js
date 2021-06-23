@@ -90,7 +90,7 @@ export default function Home() {
                     <p><a href="https://github.com/bruno1409/painel-covid-19" target="_blank">Código-fonte do painel</a></p>
                 </div>
             </div>
-            <code><p className="text-center mt-3"><i className="fas fa-code fa-fw"></i> Versão 1.4 | <i className="fas fa-calendar fa-fw"></i> 06 de junho de 2021</p></code>
+            <code><p className="text-center mt-3"><i className="fas fa-code fa-fw"></i> Versão 1.5 | <i className="fas fa-calendar fa-fw"></i> 23 de junho de 2021</p></code>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     </>)
