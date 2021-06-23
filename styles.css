@@ -10,8 +10,13 @@ h1 {
     font-weight: bold;
 }
 
+.card {
+    border-radius: 20px;
+}
+
 .card-body {
     box-shadow: 3px 3px 10px #0000004d;
+    border-radius: 20px;
 }
 
 .card-body > p {
