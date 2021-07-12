@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     // API pública IBGE
     const api_ibge = await fetch('https://servicodados.ibge.gov.br/api/v1/projecoes/populacao/');
@@ -22,8 +22,7 @@ export async function getStaticProps() {
     return {
         props: {
             populacao, confirmados, mortes, data, hora, porcentagem
-        },
-        revalidate: 60,
+        }
     }
 }
 
@@ -105,17 +104,16 @@ export default function Home({populacao, confirmados, mortes, data, hora, porcen
                 </div>
             </nav>
         </header>
-        <main className="container my-3">
-            <div className="alert alert-secondary mb-4"><i className="fas fa-info-circle fa-fw"></i> Este painel apresenta uma visão resumida e simplificada contendo apenas o número de casos confirmados e de mortes por abrangência, sendo Nacional ou Estadual.</div>
+        <main className="container my-4">
             <div className="row text-center">
-                <div className="col-sm-12 col-md-6">
+                <div className="col-sm-12 col-md-7">
                     <Image src="/br.png" height="500" width="496"/>
                 </div>
-                <div className="col-sm-12 col-md-6">
+                <div className="col-sm-12 col-md-5">
                     <div className="row">
                         <div className="mt-2">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body pb-0">
                                     <h1><i className="fas fa-globe-americas fa-fw"></i> País</h1>
                                     <p>Brasil</p>
                                 </div>
@@ -143,15 +141,14 @@ export default function Home({populacao, confirmados, mortes, data, hora, porcen
                         </div>
                         <div className="mt-2">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body pb-0">
                                     <h1><i className="fas fa-briefcase-medical fa-fw"></i> Mortes</h1>
                                     <p className="mortes">{mortes.toLocaleString('pt-BR')}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p className="mt-3"><i className="fas fa-clock fa-fw"></i> Atualizado em {data} às {hora}</p>
-                    <Link href=""><a className="btn btn-primary"><i className="fas fa-sync fa-fw"></i> Atualizar</a></Link>
+                    <p className="mt-3"><i className="fas fa-clock fa-fw"></i> Última atualização: {data} às {hora}</p>
                 </div>
             </div>
         </main>

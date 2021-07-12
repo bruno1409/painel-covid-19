@@ -2,43 +2,15 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export async function getStaticPaths() {
-    return {
-        paths: [
-            { params: { uf: 'AC' } },
-            { params: { uf: 'AL' } },
-            { params: { uf: 'AM' } },
-            { params: { uf: 'AP' } },
-            { params: { uf: 'BA' } },
-            { params: { uf: 'CE' } },
-            { params: { uf: 'DF' } },
-            { params: { uf: 'ES' } },
-            { params: { uf: 'GO' } },
-            { params: { uf: 'MA' } },
-            { params: { uf: 'MG' } },
-            { params: { uf: 'MS' } },
-            { params: { uf: 'MT' } },
-            { params: { uf: 'PA' } },
-            { params: { uf: 'PB' } },
-            { params: { uf: 'PE' } },
-            { params: { uf: 'PI' } },
-            { params: { uf: 'PR' } },
-            { params: { uf: 'RJ' } },
-            { params: { uf: 'RN' } },
-            { params: { uf: 'RO' } },
-            { params: { uf: 'RR' } },
-            { params: { uf: 'RS' } },
-            { params: { uf: 'SC' } },
-            { params: { uf: 'SE' } },
-            { params: { uf: 'SP' } },
-            { params: { uf: 'TO' } }
-        ],
-        fallback: false
-    }
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
+    const estados = ['ac', 'al', 'am', 'ap', 'ba', 'ce', 'df', 'es', 'go', 'ma', 'mg', 'ms', 'mt', 'pa', 'pb', 'pe', 'pi', 'pr', 'rj', 'rn', 'ro', 'rr', 'rs', 'sc', 'se', 'sp', 'to'];
     const get = context.params.uf;
+
+    if (!estados.includes(get)) {
+        return {
+          notFound: true,
+        }
+    }
 
     // API pública COVID-19
     const api_covid = await fetch(`https://covid19-brazil-api.vercel.app/api/report/v1/brazil/uf/${get}`);
@@ -62,8 +34,7 @@ export async function getStaticProps(context) {
     return {
         props: {
             populacao, uf, estado, confirmados, mortes, data, hora, porcentagem
-        },
-        revalidate: 60,
+        }
     }
 }
 
@@ -145,17 +116,16 @@ export default function Home({populacao, uf, estado, confirmados, mortes, data, 
                 </div>
             </nav>
         </header>
-        <main className="container my-3">
-            <div className="alert alert-secondary mb-4"><i className="fas fa-info-circle fa-fw"></i> Este painel apresenta uma visão resumida e simplificada contendo apenas o número de casos confirmados e de mortes por abrangência, sendo Nacional ou Estadual.</div>
+        <main className="container my-4">
             <div className="row text-center">
-                <div className="col-sm-12 col-md-6">
+                <div className="col-sm-12 col-md-7">
                     <Image src={`/${uf.toLowerCase()}.png`} height="500" width="496"/>
                 </div>
-                <div className="col-sm-12 col-md-6">
+                <div className="col-sm-12 col-md-5">
                     <div className="row">
                         <div className="mt-2">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body pb-0">
                                     <h1><i className="fas fa-map-marker-alt fa-fw"></i> Estado</h1>
                                     <p>{estado} ({uf})</p>
                                 </div>
@@ -183,15 +153,14 @@ export default function Home({populacao, uf, estado, confirmados, mortes, data, 
                         </div>
                         <div className="mt-2">
                             <div className="card">
-                                <div className="card-body">
+                                <div className="card-body pb-0">
                                     <h1><i className="fas fa-briefcase-medical fa-fw"></i> Mortes</h1>
                                     <p className="mortes">{mortes.toLocaleString('pt-BR')}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p className="mt-3"><i className="fas fa-clock fa-fw"></i> Atualizado em {data} às {hora}</p>
-                    <Link href=""><a className="btn btn-primary"><i className="fas fa-sync fa-fw"></i> Atualizar</a></Link>
+                    <p className="mt-3"><i className="fas fa-clock fa-fw"></i> Última atualização: {data} às {hora}</p>
                 </div>
             </div>
         </main>
