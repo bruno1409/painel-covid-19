@@ -15,6 +15,10 @@ O painel permite visualizar dados como população estimada, casos confirmados e
 
 ## Changelog
 
+Versão 1.6
+* Alteração na forma como os dados são buscados
+* Melhorias no layout e nas URLs
+
 Versão 1.5
 * Adicionado um botão para atualização dos dados
 * Pequenas alterações no layout
