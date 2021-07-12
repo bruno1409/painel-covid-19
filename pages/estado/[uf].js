@@ -8,7 +8,7 @@ export async function getServerSideProps(context) {
 
     if (!estados.includes(get)) {
         return {
-          notFound: true,
+            notFound: true
         }
     }
 
